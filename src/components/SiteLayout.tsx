@@ -353,9 +353,6 @@ export default function SiteLayout() {
               Auditoria
             </a>
             <a href="#" onClick={(e) => e.preventDefault()}>
-              Correição
-            </a>
-            <a href="#" onClick={(e) => e.preventDefault()}>
               Integridade
             </a>
             <a href="#" onClick={(e) => e.preventDefault()}>
