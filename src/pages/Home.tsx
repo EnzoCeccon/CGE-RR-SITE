@@ -36,9 +36,8 @@ export default function Home() {
   ]
 
   const videos = [
-    'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    'https://www.youtube.com/embed/-AxUORc7YLI',
+    'https://www.youtube.com/embed/n0rhfxRLgJk',
   ]
 
   const [currentBanner, setCurrentBanner] = useState(0)
@@ -298,5 +297,4 @@ export default function Home() {
     </div>
   )
 }
-
 
