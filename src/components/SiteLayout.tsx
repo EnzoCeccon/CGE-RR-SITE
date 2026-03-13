@@ -394,23 +394,6 @@ export default function SiteLayout() {
           <div className="footer-copy">
             © {new Date().getFullYear()} Desenvolvido por Departamento de Trsnparência - DTCON/CGE-RR
           </div>
-          <div className="footer-social">
-            <a href="#" onClick={(e) => e.preventDefault()} aria-label="Facebook">
-              f
-            </a>
-            <a href="#" onClick={(e) => e.preventDefault()} aria-label="X">
-              x
-            </a>
-            <a href="#" onClick={(e) => e.preventDefault()} aria-label="Instagram">
-              ig
-            </a>
-            <a href="#" onClick={(e) => e.preventDefault()} aria-label="LinkedIn">
-              in
-            </a>
-            <a href="#" onClick={(e) => e.preventDefault()} aria-label="YouTube">
-              yt
-            </a>
-          </div>
         </div>
       </footer>
     </div>

@@ -1,3 +1,5 @@
 {
-  "projects": {}
+  "projects": {
+    "default": "site-cge-demo"
+  }
 }
