@@ -5,6 +5,107 @@
   color: #1a1a1a;
 }
 
+.accessibility-toggle {
+  position: fixed;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.9rem 1.1rem;
+  border: 0;
+  border-radius: 999px;
+  background: #0f766e;
+  color: #ffffff;
+  box-shadow: 0 16px 30px rgba(15, 118, 110, 0.28);
+  cursor: grab;
+  touch-action: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.accessibility-toggle:active {
+  cursor: grabbing;
+}
+
+.accessibility-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.accessibility-panel {
+  position: fixed;
+  z-index: 50;
+  width: min(360px, calc(100vw - 2rem));
+  padding: 1rem;
+  border: 1px solid #dbe4ea;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 22px 44px rgba(15, 23, 42, 0.16);
+  backdrop-filter: blur(16px);
+}
+
+.accessibility-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.accessibility-close {
+  border: 0;
+  background: transparent;
+  color: #475569;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.accessibility-group + .accessibility-group {
+  margin-top: 1rem;
+}
+
+.accessibility-group span {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: #0f172a;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.accessibility-group p {
+  margin: 0;
+  color: #475569;
+  font-size: 0.92rem;
+}
+
+.accessibility-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.accessibility-actions.stacked {
+  flex-direction: column;
+}
+
+.accessibility-actions button {
+  min-height: 40px;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #0f172a;
+  cursor: pointer;
+  font-weight: 600;
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -1516,4 +1617,5 @@
   .contact-card-full {
     grid-column: auto;
   }
+
 }

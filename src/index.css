@@ -37,6 +37,55 @@ body {
   min-height: 100vh;
 }
 
+body.a11y-font-large {
+  font-size: 18px;
+}
+
+body.a11y-font-xlarge {
+  font-size: 20px;
+}
+
+body.a11y-high-contrast {
+  background: #000000;
+  color: #ffffff;
+  filter: contrast(1.12);
+}
+
+body.a11y-high-contrast .site,
+body.a11y-high-contrast .masthead,
+body.a11y-high-contrast .dropdown,
+body.a11y-high-contrast .service-card,
+body.a11y-high-contrast .news-card,
+body.a11y-high-contrast .video-card,
+body.a11y-high-contrast .contact-card,
+body.a11y-high-contrast .org-card,
+body.a11y-high-contrast .org-group,
+body.a11y-high-contrast .contact-box,
+body.a11y-high-contrast .org-chart,
+body.a11y-high-contrast .accessibility-panel {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+body.a11y-high-contrast p,
+body.a11y-high-contrast h1,
+body.a11y-high-contrast h2,
+body.a11y-high-contrast h3,
+body.a11y-high-contrast h4,
+body.a11y-high-contrast strong,
+body.a11y-high-contrast span,
+body.a11y-high-contrast a,
+body.a11y-high-contrast button {
+  color: #ffffff !important;
+}
+
+body.a11y-highlight-links a {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 3px !important;
+ }
+
 button {
   font-family: inherit;
 }

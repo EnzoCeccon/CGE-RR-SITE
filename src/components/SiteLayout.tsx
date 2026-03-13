@@ -1,5 +1,6 @@
 ﻿import { NavLink, Outlet } from 'react-router-dom'
 import { useEffect, useMemo, useRef, useState } from 'react'
+import AccessibilityTools from './AccessibilityTools'
 
 type MenuKey = 'institucional' | 'servicos' | null
 
@@ -48,6 +49,7 @@ export default function SiteLayout() {
 
   return (
     <div className="site">
+      <AccessibilityTools />
       <header
         className="site-header"
         ref={(node) => {
