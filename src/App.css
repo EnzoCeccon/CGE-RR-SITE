@@ -969,11 +969,320 @@
   letter-spacing: -0.01em;
 }
 
+.page h2 {
+  margin: 1.75rem 0 0.75rem;
+  color: #0f172a;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 600;
+}
+
 .page p {
   margin: 0.5rem 0 0;
   color: #475569;
   line-height: 1.7;
   font-size: 1rem;
+}
+
+.institutional-page {
+  max-width: 980px;
+}
+
+.institutional-list,
+.institutional-sublist {
+  color: #334155;
+  line-height: 1.75;
+}
+
+.institutional-list {
+  margin: 1.25rem 0 0;
+  padding-left: 1.4rem;
+}
+
+.institutional-list > li {
+  margin-bottom: 0.85rem;
+  padding-left: 0.25rem;
+}
+
+.institutional-sublist {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+}
+
+.institutional-sublist > li {
+  margin-bottom: 0.6rem;
+}
+
+.contact-page {
+  max-width: 980px;
+}
+
+.contact-box {
+  margin-top: 1rem;
+  padding: 2rem;
+  border: 1px solid #dbe4ea;
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(247, 250, 252, 0.98), rgba(255, 255, 255, 0.98));
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+.contact-box-head {
+  margin-bottom: 1.5rem;
+}
+
+.contact-kicker {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: #0f766e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contact-card {
+  padding: 1.35rem;
+  border: 1px solid #dbe4ea;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.05);
+}
+
+.contact-card-full {
+  grid-column: 1 / -1;
+}
+
+.contact-card h3 {
+  margin: 0 0 0.75rem;
+  color: #0f172a;
+  font-size: 1.02rem;
+}
+
+.page .contact-card p {
+  margin-top: 0.35rem;
+  color: #334155;
+}
+
+.structure-page {
+  padding-bottom: 4rem;
+}
+
+.structure-hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(11, 58, 74, 0.96), rgba(18, 94, 117, 0.92)),
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.18), transparent 35%);
+  box-shadow: 0 22px 44px rgba(15, 23, 42, 0.12);
+}
+
+.structure-hero h1 {
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+}
+
+.page .structure-intro {
+  max-width: 44rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 1.05rem;
+}
+
+.structure-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.structure-section-head {
+  margin-bottom: 1.25rem;
+}
+
+.structure-kicker {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: #0f766e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.org-chart h2,
+.structure-section h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+}
+
+.org-chart {
+  position: relative;
+  margin-top: 2rem;
+  padding: 2rem;
+  border: 1px solid #dbe4ea;
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(247, 250, 252, 0.98), rgba(255, 255, 255, 0.98));
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+.org-level {
+  display: flex;
+  justify-content: center;
+}
+
+.org-level-principal .org-card {
+  max-width: 480px;
+}
+
+.org-level-adjunct .org-card {
+  max-width: 420px;
+}
+
+.org-link,
+.org-branch {
+  display: flex;
+  justify-content: center;
+}
+
+.org-link-main {
+  width: 2px;
+  height: 34px;
+  margin: 0.25rem auto;
+  background: linear-gradient(180deg, #0f766e, rgba(15, 118, 110, 0.2));
+}
+
+.org-branch {
+  position: relative;
+  height: 48px;
+  margin-bottom: 1rem;
+}
+
+.org-branch-vertical {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 24px;
+  background: #94a3b8;
+}
+
+.org-branch-horizontal {
+  position: absolute;
+  top: 24px;
+  width: min(100%, 760px);
+  height: 2px;
+  background: linear-gradient(90deg, rgba(148, 163, 184, 0.25), #94a3b8, rgba(148, 163, 184, 0.25));
+}
+
+.org-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.org-group {
+  position: relative;
+  padding: 1.25rem;
+  border: 1px solid #d7e0e7;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.org-group::before {
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  width: 2px;
+  height: 25px;
+  transform: translateX(-50%);
+  background: #94a3b8;
+}
+
+.org-group-head {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.org-group-label {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  color: #0f766e;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.org-group h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.12rem;
+}
+
+.org-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+}
+
+.org-card {
+  position: relative;
+  padding: 1.35rem 1.25rem;
+  border: 1px solid #dbe4ea;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #ffffff, #f8fbfc);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.06);
+}
+
+.org-card-principal {
+  border-color: rgba(15, 118, 110, 0.28);
+  background: linear-gradient(180deg, rgba(239, 250, 248, 0.98), rgba(255, 255, 255, 0.98));
+}
+
+.org-card-adjunct {
+  border-color: rgba(15, 118, 110, 0.28);
+  background: linear-gradient(180deg, rgba(239, 250, 248, 0.98), rgba(255, 255, 255, 0.98));
+}
+
+.org-card h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
+.page .org-card p {
+  margin-top: 0.65rem;
+  color: #334155;
+  font-size: 0.93rem;
+  line-height: 1.55;
+  font-weight: 600;
+}
+
+.org-card-principal h2,
+.org-card-principal p {
+  color: #0f172a;
 }
 
 .site-footer {
@@ -1173,5 +1482,38 @@
 
   .videos-track {
     grid-auto-columns: 100%;
+  }
+
+  .structure-hero {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .org-chart {
+    padding: 1.5rem;
+  }
+
+  .org-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .org-branch {
+    display: none;
+  }
+
+  .org-group::before {
+    display: none;
+  }
+
+  .contact-box {
+    padding: 1.5rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card-full {
+    grid-column: auto;
   }
 }

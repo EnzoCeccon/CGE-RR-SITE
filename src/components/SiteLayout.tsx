@@ -14,6 +14,7 @@ export default function SiteLayout() {
       institucional: [
         { to: '/institucional/quem-somos', label: 'Quem somos' },
         { to: '/institucional/missao-visao-valores', label: 'Missão, visão e valores' },
+        { to: '/institucional/estrutura-funcional', label: 'Estrutura Funcional' },
       ],
       servicos: [
         { to: '/servicos/orientacoes', label: 'Orientações e normativos' },
@@ -47,7 +48,12 @@ export default function SiteLayout() {
 
   return (
     <div className="site">
-      <header className="site-header" ref={(node) => (headerRef.current = node)}>
+      <header
+        className="site-header"
+        ref={(node) => {
+          headerRef.current = node
+        }}
+      >
         <div className="govbar">
           <div className="container govbar-inner">
             <div className="govbar-left">
@@ -159,6 +165,10 @@ export default function SiteLayout() {
                 )}
               </div>
 
+              <NavLink to="/legislacao" className="mainnav-link" onClick={() => setOpen(null)}>
+                Legislação
+              </NavLink>
+
               <NavLink to="/contato" className="mainnav-link" onClick={() => setOpen(null)}>
                 Contato
               </NavLink>
@@ -257,6 +267,17 @@ export default function SiteLayout() {
           )}
 
           <NavLink
+            to="/legislacao"
+            className="mobile-link"
+            onClick={() => {
+              setMobileOpen(false)
+              setMobileSection(null)
+            }}
+          >
+            Legislação
+          </NavLink>
+
+          <NavLink
             to="/contato"
             className="mobile-link"
             onClick={() => {
@@ -292,6 +313,9 @@ export default function SiteLayout() {
             </a>
             <a href="#" onClick={(e) => e.preventDefault()}>
               Missão, visão e valores
+            </a>
+            <a href="#" onClick={(e) => e.preventDefault()}>
+              Estrutura Funcional
             </a>
             <a href="#" onClick={(e) => e.preventDefault()}>
               Estrutura e competências
@@ -392,3 +416,4 @@ export default function SiteLayout() {
     </div>
   )
 }
+
