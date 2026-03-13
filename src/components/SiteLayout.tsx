@@ -391,7 +391,7 @@ export default function SiteLayout() {
             />
           </div>
           <div className="footer-copy">
-            © {new Date().getFullYear()} Desenvolvido por Departamento de Trsnparência - DTCON/CGE-RR
+            © {new Date().getFullYear()} Desenvolvido por Departamento de Transparência - DTCON/CGE-RR
           </div>
         </div>
       </footer>
