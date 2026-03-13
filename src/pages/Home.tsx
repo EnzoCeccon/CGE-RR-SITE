@@ -19,17 +19,17 @@ export default function Home() {
 
   const news = [
     {
-      title: 'Contrato 14.2025 – Locação de equipamentos de informática',
+      title: 'ultimas noticias atualizadas',
       date: '15/09/2025',
       comments: 'Nenhum comentário',
     },
     {
-      title: 'Plano anual de contratações 2026',
+      title: 'ultimas noticias atualizadas',
       date: '19/05/2025',
       comments: 'Nenhum comentário',
     },
     {
-      title: '(Revogado) Decreto nº 36.611-E, de 29 de agosto de 2024',
+      title: 'ultimas noticias atualizadas',
       date: '08/04/2025',
       comments: 'Nenhum comentário',
     },
@@ -297,4 +297,3 @@ export default function Home() {
     </div>
   )
 }
-
