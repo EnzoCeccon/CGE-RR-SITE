@@ -157,18 +157,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="fixed-banner" aria-label="Acesso à Informação">
+      <section className="fixed-banner" aria-label="Acesso ao Portal de Transparência">
         <div className="container">
           <div className="fixed-banner-inner">
             <div>
-              <h2>Acesso à Informação</h2>
+              <h2>Acesso ao Portal de Transparência</h2>
               <p>
                 Consulte dados, relatórios, contratos, despesas e demais informações públicas, em conformidade com a
                 Lei de Acesso à Informação.
               </p>
             </div>
             <button type="button" className="fixed-banner-button">
-              Acessar portal de Acesso à Informação
+              Acesso ao Portal de Transparência
             </button>
           </div>
         </div>
