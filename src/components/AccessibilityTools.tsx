@@ -30,6 +30,8 @@ type FloatingPosition = {
   y: number
 }
 
+type VLibrasStatus = 'loading' | 'ready' | 'error'
+
 const STORAGE_KEY = 'cge-rr-accessibility'
 const POSITION_STORAGE_KEY = 'cge-rr-accessibility-position'
 const VLIBRAS_SCRIPT_ID = 'vlibras-plugin-script'
@@ -140,6 +142,9 @@ export default function AccessibilityTools() {
   const [open, setOpen] = useState(false)
   const [state, setState] = useState<AccessibilityState>(defaultState)
   const [position, setPosition] = useState<FloatingPosition | null>(null)
+  const [vlibrasStatus, setVlibrasStatus] = useState<VLibrasStatus>(
+    window.__vlibrasWidgetInitialized ? 'ready' : 'loading',
+  )
   const dragOffsetRef = useRef({ x: 0, y: 0 })
   const movedRef = useRef(false)
 
@@ -187,7 +192,28 @@ export default function AccessibilityTools() {
   }, [])
 
   useEffect(() => {
-    void loadVLibrasScript()
+    function handleReady() {
+      setVlibrasStatus('ready')
+    }
+
+    function handleError() {
+      setVlibrasStatus('error')
+    }
+
+    if (window.__vlibrasWidgetInitialized) {
+      setVlibrasStatus('ready')
+    } else {
+      setVlibrasStatus('loading')
+      void loadVLibrasScript().then(handleReady).catch(handleError)
+    }
+
+    window.addEventListener('vlibras-ready', handleReady)
+    window.addEventListener('vlibras-error', handleError)
+
+    return () => {
+      window.removeEventListener('vlibras-ready', handleReady)
+      window.removeEventListener('vlibras-error', handleError)
+    }
   }, [])
 
   if (!position) return null
@@ -242,6 +268,13 @@ export default function AccessibilityTools() {
     right: 'auto',
     bottom: 'auto',
   } as const
+
+  const vlibrasMessage =
+    vlibrasStatus === 'ready'
+      ? 'VLibras carregado. Use o botao flutuante oficial para abrir o tradutor.'
+      : vlibrasStatus === 'error'
+        ? 'Nao foi possivel carregar o VLibras automaticamente nesta tentativa.'
+        : 'Carregando o widget oficial do VLibras.'
 
   return (
     <>
@@ -317,17 +350,25 @@ export default function AccessibilityTools() {
 
           <div className="accessibility-group">
             <span>VLibras</span>
-            <p>O tradutor em Libras sera carregado automaticamente pelo widget oficial do governo.</p>
+            <p>{vlibrasMessage}</p>
+            {vlibrasStatus !== 'ready' && (
+              <div className="accessibility-actions" style={{ marginTop: '0.75rem' }}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setVlibrasStatus('loading')
+                    void loadVLibrasScript()
+                      .then(() => setVlibrasStatus('ready'))
+                      .catch(() => setVlibrasStatus('error'))
+                  }}
+                >
+                  Tentar carregar novamente
+                </button>
+              </div>
+            )}
           </div>
         </aside>
       )}
-
-      <div vw className="enabled">
-        <div vw-access-button className="active" />
-        <div vw-plugin-wrapper>
-          <div className="vw-plugin-top-wrapper" />
-        </div>
-      </div>
     </>
   )
 }
