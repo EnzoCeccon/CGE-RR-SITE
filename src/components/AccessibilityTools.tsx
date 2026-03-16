@@ -5,6 +5,7 @@ declare global {
     VLibras?: {
       Widget: new (target: string) => unknown
     }
+    __vlibrasWidgetInitialized?: boolean
   }
 }
 
@@ -31,6 +32,10 @@ type FloatingPosition = {
 
 const STORAGE_KEY = 'cge-rr-accessibility'
 const POSITION_STORAGE_KEY = 'cge-rr-accessibility-position'
+const VLIBRAS_SCRIPT_ID = 'vlibras-plugin-script'
+const VLIBRAS_APP_URL = 'https://vlibras.gov.br/app'
+
+let vlibrasLoaderPromise: Promise<void> | null = null
 
 const defaultState: AccessibilityState = {
   contrast: false,
@@ -65,6 +70,70 @@ function clampPosition(x: number, y: number) {
 
 function getDefaultPosition() {
   return clampPosition(window.innerWidth - 180, window.innerHeight - 76)
+}
+
+function initializeVLibrasWidget() {
+  if (!window.VLibras || window.__vlibrasWidgetInitialized) return
+
+  new window.VLibras.Widget(VLIBRAS_APP_URL)
+  window.__vlibrasWidgetInitialized = true
+}
+
+function loadVLibrasScript() {
+  if (typeof window === 'undefined') {
+    return Promise.resolve()
+  }
+
+  initializeVLibrasWidget()
+  if (window.__vlibrasWidgetInitialized) {
+    return Promise.resolve()
+  }
+
+  if (vlibrasLoaderPromise) {
+    return vlibrasLoaderPromise
+  }
+
+  vlibrasLoaderPromise = new Promise<void>((resolve, reject) => {
+    const existingScript = document.getElementById(VLIBRAS_SCRIPT_ID) as HTMLScriptElement | null
+
+    const handleLoad = () => {
+      initializeVLibrasWidget()
+      resolve()
+    }
+
+    const handleError = () => {
+      vlibrasLoaderPromise = null
+      reject(new Error('Falha ao carregar o script do VLibras.'))
+    }
+
+    if (existingScript) {
+      if (existingScript.dataset.loaded === 'true') {
+        handleLoad()
+        return
+      }
+
+      existingScript.addEventListener('load', handleLoad, { once: true })
+      existingScript.addEventListener('error', handleError, { once: true })
+      return
+    }
+
+    const script = document.createElement('script')
+    script.id = VLIBRAS_SCRIPT_ID
+    script.src = `${VLIBRAS_APP_URL}/vlibras-plugin.js`
+    script.async = true
+    script.addEventListener(
+      'load',
+      () => {
+        script.dataset.loaded = 'true'
+        handleLoad()
+      },
+      { once: true },
+    )
+    script.addEventListener('error', handleError, { once: true })
+    document.body.appendChild(script)
+  })
+
+  return vlibrasLoaderPromise
 }
 
 export default function AccessibilityTools() {
@@ -118,18 +187,7 @@ export default function AccessibilityTools() {
   }, [])
 
   useEffect(() => {
-    if (window.VLibras || document.getElementById('vlibras-plugin-script')) return
-
-    const script = document.createElement('script')
-    script.id = 'vlibras-plugin-script'
-    script.src = 'https://vlibras.gov.br/app/vlibras-plugin.js'
-    script.async = true
-    script.onload = () => {
-      if (window.VLibras) {
-        new window.VLibras.Widget('https://vlibras.gov.br/app')
-      }
-    }
-    document.body.appendChild(script)
+    void loadVLibrasScript()
   }, [])
 
   if (!position) return null

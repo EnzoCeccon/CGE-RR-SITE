@@ -14,9 +14,9 @@
   padding: 0.9rem 1.1rem;
   border: 0;
   border-radius: 999px;
-  background: #0f766e;
+  background: linear-gradient(135deg, #0b3a4a, #0f4c5c);
   color: #ffffff;
-  box-shadow: 0 16px 30px rgba(15, 118, 110, 0.28);
+  box-shadow: 0 16px 30px rgba(11, 58, 74, 0.3);
   cursor: grab;
   touch-action: none;
   font-size: 0.95rem;
