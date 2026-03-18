@@ -106,6 +106,19 @@
   font-weight: 600;
 }
 
+.vlibras-host [vw-access-button] {
+  position: fixed !important;
+  right: 1.25rem !important;
+  bottom: 6rem !important;
+  top: auto !important;
+  left: auto !important;
+  z-index: 45 !important;
+}
+
+.vlibras-host [vw-plugin-wrapper] {
+  z-index: 45 !important;
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -1504,6 +1517,11 @@
 @media (max-width: 900px) {
   .container {
     padding: 0 1.25rem;
+  }
+
+  .vlibras-host [vw-access-button] {
+    right: 1rem !important;
+    bottom: 5.25rem !important;
   }
 
   .govbar-left {

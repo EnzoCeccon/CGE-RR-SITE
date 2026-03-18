@@ -9,45 +9,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <div vw class="enabled">
-      <div vw-access-button class="active"></div>
-      <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
-      </div>
-    </div>
-    <script id="vlibras-plugin-script" src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>
-      window.addEventListener('load', function () {
-        function initializeVLibras() {
-          if (!window.VLibras || window.__vlibrasWidgetInitialized) return
-
-          new window.VLibras.Widget('https://vlibras.gov.br/app')
-          window.__vlibrasWidgetInitialized = true
-          window.dispatchEvent(new CustomEvent('vlibras-ready'))
-        }
-
-        const script = document.getElementById('vlibras-plugin-script')
-
-        if (window.VLibras) {
-          initializeVLibras()
-          return
-        }
-
-        if (!script) {
-          window.dispatchEvent(new CustomEvent('vlibras-error'))
-          return
-        }
-
-        script.addEventListener('load', initializeVLibras, { once: true })
-        script.addEventListener(
-          'error',
-          function () {
-            window.dispatchEvent(new CustomEvent('vlibras-error'))
-          },
-          { once: true },
-        )
-      })
-    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
