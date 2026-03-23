@@ -90,9 +90,12 @@ export default function SiteLayout() {
           <div className="container masthead-inner">
             <div className="logos">
               <NavLink to="/" className="logo-block text-logo" onClick={() => setOpen(null)}>
+                <img className="logo-mark" src="/images/CGE%202.png" alt="Brasão da CGE" />
                 <span className="logo-text">
-                  <span className="logo-title">Controladoria</span>
-                  <strong>Geral do Estado de Roraima</strong>
+                  <strong>
+                    <span className="logo-line">Controladoria Geral</span>
+                    <span className="logo-line">do Estado de Roraima</span>
+                  </strong>
                 </span>
               </NavLink>
             </div>

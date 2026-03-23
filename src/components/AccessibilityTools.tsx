@@ -169,7 +169,12 @@ export default function AccessibilityTools() {
         }}
       >
         <span className="accessibility-toggle-icon" aria-hidden="true">
-          A11Y
+          <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+            <path
+              d="M12 4.25a1.75 1.75 0 1 0 0 3.5a1.75 1.75 0 0 0 0-3.5ZM8.2 9.1a.75.75 0 0 0 0 1.5h2.9v2.28l-3.58 5.24a.75.75 0 1 0 1.24.86l2.49-3.65v4.42a.75.75 0 0 0 1.5 0v-4.42l2.49 3.65a.75.75 0 1 0 1.24-.86l-3.58-5.24V10.6h2.9a.75.75 0 0 0 0-1.5H8.2Z"
+              fill="currentColor"
+            />
+          </svg>
         </span>
         <span>Acessibilidade</span>
       </button>

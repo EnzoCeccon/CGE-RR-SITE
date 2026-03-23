@@ -35,14 +35,26 @@ export default function Home() {
     },
   ]
 
-  const videos = [
-    'https://www.youtube.com/embed/-AxUORc7YLI',
-    'https://www.youtube.com/embed/n0rhfxRLgJk',
+  const publications = [
+    {
+      title: 'Publicação em destaque 01',
+      embedHref: 'https://www.instagram.com/reel/DVn1sOEEUO-/embed',
+      href: 'https://www.instagram.com/reel/DVn1sOEEUO-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
+    },
+    {
+      title: 'Publicação em destaque 02',
+      embedHref: 'https://www.instagram.com/reel/DQcrSFQkafx/embed',
+      href: 'https://www.instagram.com/reel/DQcrSFQkafx/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
+    },
+    {
+      title: 'Publicação em destaque 03',
+      embedHref: 'https://www.instagram.com/reel/DPWwGkvEXK6/embed',
+      href: 'https://www.instagram.com/reel/DPWwGkvEXK6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
+    },
   ]
 
   const [currentBanner, setCurrentBanner] = useState(0)
   const [currentNews, setCurrentNews] = useState(0)
-  const [currentVideo, setCurrentVideo] = useState(0)
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -57,14 +69,6 @@ export default function Home() {
 
   const handleNextNews = () => {
     setCurrentNews((prev) => (prev + 1) % news.length)
-  }
-
-  const handlePrevVideo = () => {
-    setCurrentVideo((prev) => (prev - 1 + videos.length) % videos.length)
-  }
-
-  const handleNextVideo = () => {
-    setCurrentVideo((prev) => (prev + 1) % videos.length)
   }
 
   return (
@@ -234,63 +238,37 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container videos-section" aria-label="Vídeos explicativos">
-        <div className="videos-header">
-          <h2>Vídeos e conteúdos em destaque</h2>
+      <section className="container publications-section" aria-label="Publicações em destaque">
+        <div className="publications-header">
+          <h2>Publicações em destaque</h2>
           <p>
-            Assista a materiais produzidos pela Controladoria sobre controle interno, transparência e gestão pública.
+            Acesse relatórios, guias e materiais técnicos produzidos pela Controladoria para apoiar a transparência e
+            a boa gestão pública.
           </p>
         </div>
 
-        <div className="videos-carousel">
-          <button
-            type="button"
-            className="video-arrow left"
-            onClick={handlePrevVideo}
-            aria-label="Vídeo anterior"
-          >
-            ‹
-          </button>
-
-          <div className="videos-window">
-            <div
-              className="videos-track"
-              style={{ transform: `translateX(-${currentVideo * 100}%)` }}
-            >
-              {videos.map((src, index) => (
-                <article key={src + index} className="video-card">
-                  <div className="video-frame">
-                    <iframe
-                      src={src}
-                      title="Vídeo institucional"
-                      loading="lazy"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    />
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <button
-            type="button"
-            className="video-arrow right"
-            onClick={handleNextVideo}
-            aria-label="Próximo vídeo"
-          >
-            ›
-          </button>
-        </div>
-
-        <div className="video-dots" aria-hidden="true">
-          {videos.map((_, index) => (
-            <button
-              key={index}
-              type="button"
-              className={`video-dot ${index === currentVideo ? 'active' : ''}`}
-              onClick={() => setCurrentVideo(index)}
-            />
+        <div className="publications-grid">
+          {publications.map((item) => (
+            <article key={item.title} className="publication-embed-card">
+              <div className="publication-embed-head">
+                <div className="publication-profile">
+                  <strong>cge.roraima</strong>
+                  <span>Instagram oficial</span>
+                </div>
+                <a href={item.href} target="_blank" rel="noreferrer" className="publication-open-link">
+                  Ver no Instagram
+                </a>
+              </div>
+              <div className="publication-embed-frame">
+                <iframe
+                  title={item.title}
+                  src={item.embedHref}
+                  loading="lazy"
+                  allow="clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            </article>
           ))}
         </div>
       </section>
