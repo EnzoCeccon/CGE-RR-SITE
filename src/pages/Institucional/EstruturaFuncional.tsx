@@ -52,6 +52,10 @@ const support = [
     name: 'MARIA JULIETE MEDEIROS DE OLIVEIRA',
     role: 'CONSULTORA T\u00C9CNICA',
   },
+  {
+    name: 'JOS\u00C9 CARLOS DOS PRAZERES MELO',
+    role: 'CONSULTOR T\u00C9CNICO',
+  },
 ]
 
 function OrgCard({
