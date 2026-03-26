@@ -1566,20 +1566,18 @@
   margin: 0 auto;
   padding: 3rem 2rem 2.75rem;
   border-radius: 34px;
-  border: 1px solid rgba(18, 57, 88, 0.08);
+  border: 1px solid rgba(18, 57, 88, 0.09);
   background:
-    radial-gradient(circle at top left, rgba(14, 95, 173, 0.08), transparent 18%),
-    radial-gradient(circle at bottom right, rgba(162, 61, 44, 0.08), transparent 18%),
-    linear-gradient(180deg, rgba(255, 247, 243, 0.96), rgba(255, 251, 249, 0.98));
-  box-shadow: 0 24px 50px rgba(15, 45, 73, 0.1);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 251, 254, 0.98));
+  box-shadow: 0 24px 50px rgba(15, 45, 73, 0.08);
 }
 
 .organogram-board-title {
   margin-bottom: 2.25rem;
-  color: var(--color-blue-deep);
-  font-size: clamp(1.2rem, 2vw, 1.9rem);
+  color: var(--color-blue-slate);
+  font-size: clamp(1.1rem, 1.8vw, 1.55rem);
   font-weight: 900;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-align: center;
   text-transform: uppercase;
 }
@@ -1618,60 +1616,63 @@
 }
 
 .organogram-group-departments {
-  margin-top: 1.6rem;
+  margin-top: 1.8rem;
 }
 
 .organogram-group-nuclei {
-  margin-top: 0.35rem;
+  margin-top: 0.6rem;
 }
 
 .organogram-node {
-  min-height: 98px;
-  padding: 1rem 1.1rem;
-  border-radius: 18px;
+  min-height: 96px;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(19, 54, 83, 0.11);
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  box-shadow: 0 16px 30px rgba(15, 45, 73, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 250, 253, 0.98));
+  box-shadow: 0 16px 30px rgba(15, 45, 73, 0.07);
 }
 
 .organogram-node h2 {
   margin: 0;
-  color: #ffffff;
-  font-size: 1.05rem;
-  font-weight: 900;
-  line-height: 1.18;
+  color: var(--color-blue-slate);
+  font-size: 1rem;
+  font-weight: 850;
+  line-height: 1.24;
   text-transform: uppercase;
 }
 
 .organogram-node-chief {
   width: min(100%, 290px);
   min-height: 86px;
-  background: linear-gradient(180deg, #2172d6, #1657ac);
+  border-color: rgba(16, 72, 119, 0.22);
+  background: linear-gradient(180deg, rgba(228, 239, 248, 0.96), rgba(217, 232, 245, 0.96));
 }
 
 .organogram-node-support {
-  background: linear-gradient(180deg, #f08f69, #e97752);
+  border-top: 4px solid rgba(21, 87, 138, 0.8);
 }
 
 .organogram-node-department {
   min-height: 108px;
-  background: linear-gradient(180deg, #12ca6e, #08b85e);
+  border-top: 4px solid rgba(34, 104, 83, 0.78);
 }
 
 .organogram-node-admin {
-  background: linear-gradient(180deg, #c55f57, #af4942);
+  border-top: 4px solid rgba(78, 99, 120, 0.74);
 }
 
 .organogram-line {
   display: block;
-  background: rgba(27, 38, 52, 0.72);
+  background: rgba(73, 93, 113, 0.48);
 }
 
 .organogram-line-vertical {
   width: 2px;
-  height: 28px;
+  height: 30px;
 }
 
 .organogram-line-horizontal {
