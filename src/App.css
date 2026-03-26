@@ -791,7 +791,7 @@
 .news-track {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc(100% / 3);
+  grid-auto-columns: calc((100% - 3rem) / 3);
   gap: 1.5rem;
   transition: transform 0.35s ease;
 }
@@ -1740,7 +1740,7 @@
 
 @media (max-width: 1100px) {
   .news-track {
-    grid-auto-columns: calc(100% / 2);
+    grid-auto-columns: calc((100% - 1.5rem) / 2);
   }
 
   .services-grid,
