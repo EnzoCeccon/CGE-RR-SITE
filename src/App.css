@@ -275,13 +275,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .logos {
   display: flex;
   align-items: center;
-  flex: 1 1 auto;
+  flex: 0 1 280px;
   min-width: 0;
 }
 
@@ -289,6 +289,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0;
+  max-width: 100%;
   padding: 0.2rem 0;
   color: var(--color-text);
   transition: transform 0.2s ease, opacity 0.2s ease;
@@ -311,25 +312,52 @@
 }
 
 .text-logo strong {
-  display: block;
-  max-width: 18ch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
   color: var(--color-blue-slate);
-  font-size: clamp(1.22rem, 1.7vw, 1.72rem);
-  line-height: 0.96;
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
+  line-height: 0.88;
 }
 
 .logo-line {
   display: block;
 }
 
-.logo-line:first-child {
+.logo-line-top {
   color: #6d7f92;
-  font-size: 0.82em;
+  font-size: clamp(0.86rem, 1vw, 1rem);
   font-weight: 800;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.logo-line-main {
+  color: var(--color-blue-slate);
+  width: 100%;
+  font-size: clamp(1.7rem, 2.25vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.logo-line-top + .logo-line-main {
+  margin-top: 0.14rem;
+}
+
+.logo-line-main:first-of-type {
+  margin-top: 0.1rem;
+}
+
+.logo-line-main + .logo-line-main {
+  margin-top: -0.02rem;
+}
+
+.logo-line:first-child {
+  font-weight: 800;
 }
 
 .caret {
@@ -341,6 +369,8 @@
 .mainnav {
   display: flex;
   align-items: center;
+  margin-left: auto;
+  flex: 0 1 auto;
   gap: 0.3rem;
 }
 
@@ -424,8 +454,24 @@
   transition: all 0.15s ease;
 }
 
+.dropdown-item {
+  width: 100%;
+  display: block;
+  padding: 0.85rem 0.9rem;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
 .dropdown a:hover,
-.dropdown a.active {
+.dropdown a.active,
+.dropdown-item:hover {
   background: var(--color-blue-slate);
   color: #ffffff;
 }
@@ -542,6 +588,14 @@
   color: rgba(255, 255, 255, 0.72);
   font-size: 0.84rem;
   font-weight: 700;
+}
+
+.mobile-sublink-button {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
 }
 
 .mobile-sublink:hover {

@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import AccessibilityTools from './AccessibilityTools'
 import VLibrasPlugin from './VLibrasPlugin'
 
-type MenuKey = 'institucional' | 'servicos' | null
+type MenuKey = 'institucional' | 'departamentos' | 'servicos' | null
 
 export default function SiteLayout() {
   const [open, setOpen] = useState<MenuKey>(null)
@@ -18,6 +18,14 @@ export default function SiteLayout() {
         { to: '/institucional/missao-visao-valores', label: 'Missão, visão e valores' },
         { to: '/institucional/organograma', label: 'Organograma' },
         { to: '/institucional/estrutura-funcional', label: 'Estrutura Funcional' },
+      ],
+      departamentos: [
+        'Transparência e Controle Social',
+        'Convênios e Repasse de Recursos',
+        'Integridade e Governança',
+        'Contas e Programas de Governo',
+        'Análise Prévia e Gestão de Riscos',
+        'Auditorias Programadas',
       ],
       servicos: [
         { to: '/servicos/orientacoes', label: 'Orientações e normativos' },
@@ -66,13 +74,13 @@ export default function SiteLayout() {
                 Diário Oficial
               </a>
               <a className="govbar-link" href="#" onClick={(e) => e.preventDefault()}>
-                Transparência
-              </a>
-              <a className="govbar-link" href="#" onClick={(e) => e.preventDefault()}>
                 Portal do Governo
               </a>
               <a className="govbar-link" href="#" onClick={(e) => e.preventDefault()}>
-                Acesso à informação
+                Transparência
+              </a>
+              <a className="govbar-link" href="#" onClick={(e) => e.preventDefault()}>
+                Radar da Transparência
               </a>
               <a className="govbar-link" href="#" onClick={(e) => e.preventDefault()}>
                 Índice de Transparência e Governança
@@ -93,8 +101,9 @@ export default function SiteLayout() {
               <NavLink to="/" className="logo-block text-logo" onClick={() => setOpen(null)}>
                 <span className="logo-text">
                   <strong>
-                    <span className="logo-line">Controladoria Geral</span>
-                    <span className="logo-line">do Estado de Roraima</span>
+                    <span className="logo-line logo-line-top">Controladoria Geral do</span>
+                    <span className="logo-line logo-line-main">Estado de</span>
+                    <span className="logo-line logo-line-main">Roraima</span>
                   </strong>
                 </span>
               </NavLink>
@@ -117,6 +126,33 @@ export default function SiteLayout() {
               <NavLink to="/" className="mainnav-link" end onClick={() => setOpen(null)}>
                 Home
               </NavLink>
+
+              <div className="mainnav-item">
+                <button
+                  type="button"
+                  className="mainnav-trigger"
+                  aria-haspopup="menu"
+                  aria-expanded={open === 'departamentos'}
+                  onClick={() => setOpen(open === 'departamentos' ? null : 'departamentos')}
+                >
+                  Departamentos <span className="caret">▾</span>
+                </button>
+                {open === 'departamentos' && (
+                  <div className="dropdown" role="menu">
+                    {menus.departamentos.map((item) => (
+                      <button
+                        key={item}
+                        type="button"
+                        className="dropdown-item"
+                        onClick={() => setOpen(null)}
+                        role="menuitem"
+                      >
+                        {item}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
 
               <div className="mainnav-item">
                 <button
@@ -243,6 +279,32 @@ export default function SiteLayout() {
                 >
                   {item.label}
                 </NavLink>
+              ))}
+            </div>
+          )}
+
+          <button
+            type="button"
+            className="mobile-trigger"
+            aria-expanded={mobileSection === 'departamentos'}
+            onClick={() => setMobileSection(mobileSection === 'departamentos' ? null : 'departamentos')}
+          >
+            Departamentos <span className="caret">▾</span>
+          </button>
+          {mobileSection === 'departamentos' && (
+            <div className="mobile-sub">
+              {menus.departamentos.map((item) => (
+                <button
+                  key={item}
+                  type="button"
+                  className="mobile-sublink mobile-sublink-button"
+                  onClick={() => {
+                    setMobileOpen(false)
+                    setMobileSection(null)
+                  }}
+                >
+                  {item}
+                </button>
               ))}
             </div>
           )}
