@@ -20,12 +20,30 @@ export default function SiteLayout() {
         { to: '/institucional/estrutura-funcional', label: 'Estrutura Funcional' },
       ],
       departamentos: [
-        'Transparência e Controle Social',
-        'Convênios e Repasse de Recursos',
-        'Integridade e Governança',
-        'Contas e Programas de Governo',
-        'Análise Prévia e Gestão de Riscos',
-        'Auditorias Programadas',
+        {
+          to: '/departamentos/transparencia-e-controle-social',
+          label: 'Transparência e Controle Social',
+        },
+        {
+          to: '/departamentos/convenios-e-repasse-de-recursos',
+          label: 'Convênios e Repasse de Recursos',
+        },
+        {
+          to: '/departamentos/integridade-e-governanca',
+          label: 'Integridade e Governança',
+        },
+        {
+          to: '/departamentos/contas-e-programas-de-governo',
+          label: 'Contas e Programas de Governo',
+        },
+        {
+          to: '/departamentos/analise-previa-e-gestao-de-riscos',
+          label: 'Análise Prévia e Gestão de Riscos',
+        },
+        {
+          to: '/departamentos/auditorias-programadas',
+          label: 'Auditorias Programadas',
+        },
       ],
       servicos: [
         { to: '/servicos/orientacoes', label: 'Orientações e normativos' },
@@ -140,15 +158,17 @@ export default function SiteLayout() {
                 {open === 'departamentos' && (
                   <div className="dropdown" role="menu">
                     {menus.departamentos.map((item) => (
-                      <button
-                        key={item}
-                        type="button"
-                        className="dropdown-item"
+                      <NavLink
+                        key={item.to}
+                        to={item.to}
+                        className={({ isActive }) =>
+                          isActive ? 'dropdown-item active' : 'dropdown-item'
+                        }
                         onClick={() => setOpen(null)}
                         role="menuitem"
                       >
-                        {item}
-                      </button>
+                        {item.label}
+                      </NavLink>
                     ))}
                   </div>
                 )}
@@ -294,17 +314,17 @@ export default function SiteLayout() {
           {mobileSection === 'departamentos' && (
             <div className="mobile-sub">
               {menus.departamentos.map((item) => (
-                <button
-                  key={item}
-                  type="button"
-                  className="mobile-sublink mobile-sublink-button"
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  className="mobile-sublink"
                   onClick={() => {
                     setMobileOpen(false)
                     setMobileSection(null)
                   }}
                 >
-                  {item}
-                </button>
+                  {item.label}
+                </NavLink>
               ))}
             </div>
           )}

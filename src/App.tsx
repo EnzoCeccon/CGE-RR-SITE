@@ -1,6 +1,7 @@
 import './App.css'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import SiteLayout from './components/SiteLayout'
+import DepartamentoDetalhe from './pages/Departamentos/DepartamentoDetalhe'
 import Home from './pages/Home'
 import Contato from './pages/Contato'
 import EstruturaFuncional from './pages/Institucional/EstruturaFuncional'
@@ -23,6 +24,9 @@ function App() {
           <Route path="missao-visao-valores" element={<MissaoVisaoValores />} />
           <Route path="organograma" element={<Organograma />} />
           <Route path="estrutura-funcional" element={<EstruturaFuncional />} />
+        </Route>
+        <Route path="departamentos">
+          <Route path=":slug" element={<DepartamentoDetalhe />} />
         </Route>
         <Route path="servicos">
           <Route index element={<Navigate to="/servicos/orientacoes" replace />} />
