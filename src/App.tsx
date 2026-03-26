@@ -4,6 +4,7 @@ import SiteLayout from './components/SiteLayout'
 import Home from './pages/Home'
 import Contato from './pages/Contato'
 import EstruturaFuncional from './pages/Institucional/EstruturaFuncional'
+import Organograma from './pages/Institucional/Organograma'
 import QuemSomos from './pages/Institucional/QuemSomos'
 import MissaoVisaoValores from './pages/Institucional/MissaoVisaoValores'
 import Legislacao from './pages/Legislacao'
@@ -20,6 +21,7 @@ function App() {
           <Route index element={<Navigate to="/institucional/quem-somos" replace />} />
           <Route path="quem-somos" element={<QuemSomos />} />
           <Route path="missao-visao-valores" element={<MissaoVisaoValores />} />
+          <Route path="organograma" element={<Organograma />} />
           <Route path="estrutura-funcional" element={<EstruturaFuncional />} />
         </Route>
         <Route path="servicos">

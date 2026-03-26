@@ -16,6 +16,7 @@ export default function SiteLayout() {
       institucional: [
         { to: '/institucional/quem-somos', label: 'Quem somos' },
         { to: '/institucional/missao-visao-valores', label: 'Missão, visão e valores' },
+        { to: '/institucional/organograma', label: 'Organograma' },
         { to: '/institucional/estrutura-funcional', label: 'Estrutura Funcional' },
       ],
       servicos: [
@@ -90,7 +91,6 @@ export default function SiteLayout() {
           <div className="container masthead-inner">
             <div className="logos">
               <NavLink to="/" className="logo-block text-logo" onClick={() => setOpen(null)}>
-                <img className="logo-mark" src="/images/CGE%202.png" alt="Brasão da CGE" />
                 <span className="logo-text">
                   <strong>
                     <span className="logo-line">Controladoria Geral</span>
@@ -320,6 +320,9 @@ export default function SiteLayout() {
             </a>
             <a href="#" onClick={(e) => e.preventDefault()}>
               Missão, visão e valores
+            </a>
+            <a href="#" onClick={(e) => e.preventDefault()}>
+              Organograma
             </a>
             <a href="#" onClick={(e) => e.preventDefault()}>
               Estrutura Funcional

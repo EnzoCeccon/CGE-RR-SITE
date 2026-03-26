@@ -78,20 +78,10 @@ function OrgCard({
 export default function EstruturaFuncional() {
   return (
     <div className="container page structure-page">
-      <div className="structure-hero">
-        <div>
-          <h1>Estrutura Funcional</h1>
-          <p className="structure-intro">
-            {'Organograma institucional da Controladoria-Geral do Estado de Roraima, com a disposi\u00E7\u00E3o da alta gest\u00E3o, diretorias e apoio t\u00E9cnico-administrativo.'}
-          </p>
-        </div>
-        <div className="structure-badge">CGE/RR</div>
-      </div>
-
       <section className="org-chart" aria-labelledby="organograma-title">
         <div className="structure-section-head">
-          <span className="structure-kicker">{'Organiza\u00E7\u00E3o institucional'}</span>
-          <h2 id="organograma-title">Organograma funcional</h2>
+          <span className="structure-kicker">{'Estrutura institucional'}</span>
+          <h2 id="organograma-title">Estrutura</h2>
         </div>
 
         <div className="org-level org-level-principal">
